@@ -31,18 +31,26 @@
 
         <label for="appointmentDate">Appointment Date:</label>
         <input type="date" name="appointmentDate" id="appointmentDate" required>
+        <p id="message" style="color: black; font-weight: bold;"></p>
 
         <input type="submit" value="Download PDF">
     </form>
     <script>
-    // Get today's date
     const today = new Date();
 
-    // Format the date as YYYY-MM-DD
-    const formattedToday = today.toISOString().split('T')[0];
+    // Add 1 day to get tomorrow's date
+    today.setDate(today.getDate() + 1);
 
-    // Set today's date as the minimum selectable date
-    document.getElementById('appointmentDate').setAttribute('min', formattedToday);
+    // Format the date as YYYY-MM-DD
+    const tomorrow = today.toISOString().split('T')[0];
+
+    // Set tomorrow's date as both the minimum and maximum selectable date
+    const dateInput = document.getElementById('appointmentDate');
+    dateInput.setAttribute('min', tomorrow);
+    dateInput.setAttribute('max', tomorrow);
+
+    // Set tomorrow as the default selected date
+    dateInput.value = tomorrow;
 </script>
     <script src="script.js"></script>
 
