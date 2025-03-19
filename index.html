@@ -5,6 +5,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
 <link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+         #message {
+            color: black; /* Orange-red color */
+            font-weight: bold;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+    </style>
     
 </head>
 <body>
@@ -31,7 +39,7 @@
 
         <label for="appointmentDate">Appointment Date:</label>
         <input type="date" name="appointmentDate" id="appointmentDate" required>
-        <p id="message" style="color: black; font-weight: bold;"></p>
+        
 
         <input type="submit" value="Download PDF">
     </form>
@@ -51,6 +59,7 @@
 
     // Set tomorrow as the default selected date
     dateInput.value = tomorrow;
+        document.getElementById('message').innerText = " Please select the date for tomorrow only!";
 </script>
     <script src="script.js"></script>
 
